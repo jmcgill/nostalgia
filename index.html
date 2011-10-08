@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Nostalgia</title>
+    <script type="text/javascript" src="nostalgia.js"></script>
+    <script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <script type="text/javascript" src="codemirror/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="codemirror/mode/javascript/javascript.css">
+    <link rel="stylesheet" href="editor.css">
+  </head>
+  <body onload="load()">
+  <div id="main" class="screen"></div><hr>
+  <div id="editor"></div>
+  <!-- TODO(jmcgill): Make this a nice button, make run a method on a NS.
+  -->
+  <input type="button" onclick="run()" value="Run">
+  </body>
+</html>
