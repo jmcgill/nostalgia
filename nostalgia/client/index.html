@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Nostalgia</title>
+    <script type="text/javascript" src="bind.js"></script>
+    <script type="text/javascript" src="console.js"></script>
+    <script type="text/javascript" src="nostalgia.js"></script>
+    <script type="text/javascript" src="text_renderer.js"></script>
+
+   <!-- Narrative JS (Blocking semantics) -->
+   <script type="text/javascript" src="narrativejs/deploy/njs_compile.js">
+   </script>
+    
+   <!-- jQuery -->
+   <script type="text/javascript" src="jquery.js"></script>
+
+    <!-- Code Mirror -->
+    <script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <script type="text/javascript" 
+        src="codemirror/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="codemirror/mode/javascript/javascript.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="editor.css">
+  </head>
+  <body onload="load()">
+  <div id="main" class="screen"></div><hr>
+  <input type="button" onclick="run()" value="Run">
+  <div id="editor" style="font-size: 12pt;"></div>
+  {{ program }}
+  </body>
+</html>

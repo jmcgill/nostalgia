@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Nostalgia</title>
+    <script type="text/javascript" src="/client/bind.js"></script>
+    <script type="text/javascript" src="/client/console.js"></script>
+    <script type="text/javascript" src="/client/nostalgia.js"></script>
+    <script type="text/javascript" src="/client/text_renderer.js"></script>
+
+   <!-- Server vars -->
+   <script type="text/javascript">
+   var id_ = '';
+   function load() {
+     var editor_div = document.getElementById("editor");
+     editor_ = CodeMirror(editor_div, {
+       enterMode: 'flat',
+       electricChars: false,
+       lineNumbers: true,
+       matchBrackets: true,
+       workDelay: 50
+     });
+     renderer_ = new TextRenderer(document.getElementById("main"), 40);
+     id_ = "{{ id }}";
+     editor_.setValue("{{ program }}");
+
+     if (editor_.getValue() != '') {
+       window.setTimeout(function() {
+         run();
+         document.getElementById("run").focus();
+       }, 300);
+     }
+   }
+   </script>
+
+   <!-- Narrative JS (Blocking semantics) -->
+   <script type="text/javascript" src="/client/narrativejs/deploy/njs_compile.js">
+   </script>
+    
+   <!-- jQuery -->
+   <script type="text/javascript" src="/client/jquery.js"></script>
+
+    <!-- Code Mirror -->
+    <script type="text/javascript" 
+        src="/client/codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="/client/codemirror/lib/codemirror.css">
+    <script type="text/javascript" 
+        src="/client/codemirror/mode/javascript/javascript.js"></script>
+    <link rel="stylesheet" href="/client/codemirror/mode/javascript/javascript.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="/client/editor.css">
+  </head>
+  <body onload="load()">
+  <div id="main" class="screen"></div><hr>
+  <input type="button" onclick="run()" id="run" value="Run">
+  <input type="button" onclick="save()" value="Save">
+  <span style="color: #CCCCCC;" id="status"></span>
+  <div id="editor" style="font-size: 12pt; line-height: 300%;"></div>
+  </body>
+</html>

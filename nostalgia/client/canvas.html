@@ -1,0 +1,39 @@
+<html>
+  <head>
+  <script type="text/javascript"
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
+  </script>
+    <script type="text/javascript" src="console.js"></script>
+  <script type="text/javascript">
+
+function bind(scope, fn) {
+  var args = Array.prototype.slice.call(arguments, 2);
+  return function() {
+    return fn.apply(scope, Array.prototype.slice.call(arguments).concat(args));
+  }
+};
+
+    var count = 0;
+    function load() {
+      my_console = new Console(document);
+
+      window.setInterval(function() {
+      var c = document.getElementById('c');
+      if (c.getContext) {
+        ctx = c.getContext('2d');
+        ctx.clearRect(0, 0, 500, 500);
+        ctx.font = "30pt Courier";
+        ctx.strokeStyle = 'rgb(255, 0, 0)';
+        ctx.fillStyle = 'rgb(255, 0, 0)';
+        ctx.fillText(my_console.getText(), 10, 30);
+      }
+      }, 16);
+    }
+    </script>
+  </head>
+  <body onload="load()">
+    <div id="d" style="background-color: #00FF00; width: 500px; height: 500px; top: 0px; left: 0px; position: absolute"></div>
+    <canvas id="c" style="position: absolute; top: 0px; left: 0px;" height="500px" width="500px"></canvas>
+  </body>
+</html>
+
